@@ -19,6 +19,7 @@ from spider import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.hello),
     path('hello/', views.hello),
     path('time/', views.current_datetime),
     path('time/plus/<offset>/', views.hours_ahead),
