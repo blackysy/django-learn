@@ -23,4 +23,5 @@ urlpatterns = [
     path('hello/', views.hello),
     path('time/', views.current_datetime),
     path('time/plus/<offset>/', views.hours_ahead),
+    path('meta/', views.display_meta),
 ]
