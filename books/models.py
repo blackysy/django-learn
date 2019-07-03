@@ -1,11 +1,6 @@
-#!/usr/bin/python
-# _*_coding:utf-8_*_
-# @Time     : 2019/6/28 下午2:13
-# @Author   : blackysy
-# @File     : models.py
-# @Software : PyCharm
-
 from django.db import models
+
+# Create your models here.
 
 
 class Publisher(models.Model):
@@ -18,6 +13,9 @@ class Publisher(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['name']
 
 
 class Author(models.Model):
@@ -33,7 +31,7 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
-    publication_date = models.DateField(blank=True, null=True)
+    publication_date = models.DateField()
 
     def __str__(self):
         return self.title

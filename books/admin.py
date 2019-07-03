@@ -1,12 +1,9 @@
-#!/usr/bin/python
-# _*_coding:utf-8_*_
-# @Time     : 2019/6/28 下午3:50
-# @Author   : blackysy
-# @File     : admin.py
-# @Software : PyCharm
+from django.contrib import admin
+
+# Register your models here.
 
 from django.contrib import admin
-from spider.models import Publisher, Author, Book
+from books.models import Publisher, Author, Book
 
 
 class PublisherAdmin(admin.ModelAdmin):
