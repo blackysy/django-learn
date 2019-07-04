@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from spider import views
+from books import views as bk
+from contact import views as ct
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,6 @@ urlpatterns = [
     path('time/', views.current_datetime),
     path('time/plus/<offset>/', views.hours_ahead),
     path('meta/', views.display_meta),
+    path('search/', bk.search),
+    path('contact/', ct.contact),
 ]
