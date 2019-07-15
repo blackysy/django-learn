@@ -6,9 +6,9 @@
 # @Software : PyCharm
 
 from django.template.loader import get_template
-from django.template import Context
+from django.template import loader, Context, RequestContext
 from django.http import HttpResponse, Http404
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 import datetime
 
 
@@ -34,3 +34,12 @@ def display_meta(request):
     values = request.META.items()
     values = sorted(values, key=lambda x: x[0])
     return render_to_response('display_meta.html', {'meta': values})
+
+
+def custom_proc(request):
+    """ A context processor that provides 'app', 'user' and 'ip'. """
+    return {
+        'app': 'My app',
+        'user': request.user,
+        'ip_address': request.META['REMOTE_ADDR']
+    }
